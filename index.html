@@ -54,6 +54,42 @@
     .flutter:hover { background-color: #02569b; }
     .wordpress:hover { background-color: #21759b; }
     .elementor:hover { background-color: #92003b; }
+    /* Cards de projetos */
+    .projeto-card {
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      min-height: 180px;
+      cursor: pointer;
+      background: #1e293b;
+      color: #f1f5f9;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.15);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .projeto-card:hover, .projeto-card.ativo {
+      transform: scale(1.06);
+      background: #0f172a;
+      color: #fff;
+      z-index: 10;
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
+    }
+    .projeto-card .projeto-resumo {
+      min-height: 60px;
+    }
+    .projeto-card .projeto-detalhe {
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 0.3s, max-height 0.3s;
+      overflow: hidden;
+    }
+    .projeto-card.ativo .projeto-detalhe {
+      opacity: 1;
+      max-height: 400px;
+      margin-top: 0.5rem;
+    }
+    .projeto-card.ativo .projeto-resumo {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -75,7 +111,7 @@
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-semibold mb-6 animate__animated animate__fadeIn">Sobre</h2>
         <p class="mb-4 text-lg">
-          Sou desenvolvedor apaixonado por tecnologia, formado em Ciência da Computação, com experiência em projetos de destaque como sistemas meteorológicos para o Estado do Paraná (Simepar), soluções para empresas como Copel, GR Serviços Ferroviários, LivPay/LIVIX, Rede Sul de Notícias e Shooting House. Atuo tanto no front-end quanto no back-end, utilizando stacks modernas como Vue.js, React, Laravel, PHP, Flutter e WordPress.
+          Sou desenvolvedor apaixonado por tecnologia, formado em Ciência da Computação, com experiência em projetos de destaque como sistemas meteorológicos para o Estado do Paraná (Simepar), GR Serviços Ferroviários, LivPay/LIVIX, Rede Sul de Notícias e Shooting House. Atuo tanto no front-end quanto no back-end, utilizando stacks modernas como Vue.js, React, Laravel, PHP, Flutter e WordPress.
         </p>
         <p class="mb-4 text-lg">
           Busco sempre evoluir, aplicando boas práticas, Clean Code e novas tecnologias para entregar soluções de alta qualidade, desempenho e usabilidade. Estou aberto a novas oportunidades e colaborações!
@@ -87,44 +123,26 @@
       </div>
     </section>
 
+    <!-- SESSÃO PROJETOS COM CARDS INTERATIVOS -->
     <section id="projetos" class="py-16 gradient">
-      <div class="max-w-6xl mx-auto px-4 space-y-20">
+      <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-semibold text-center mb-12 animate__animated animate__fadeIn">Projetos</h2>
-
-        <div>
-          <h3 class="text-2xl font-bold text-cyan-400 mb-2">Sistema Meteorológico do Estado do Paraná</h3>
-          <p class="text-base leading-relaxed">
-            Durante minha trajetória no Simepar, atuei predominantemente como desenvolvedor front-end, com forte colaboração no back-end utilizando o framework Laravel. Desenvolvi sistemas completos desde a concepção até a entrega final, sempre focando em qualidade, desempenho e usabilidade.
-            Trabalhei em diversos projetos de grande porte para empresas como Copel Geração, Transmissão e Distribuição. Destaque para sistemas com Leaflet, MapLibre, dashboards com Highcharts, alertas geográficos para Defesa Civil e o sistema vFogo com filtros por satélite, horário e áreas estratégicas. Também atuei como tech lead em iniciativas com autenticação 2FA e Clean Code.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-cyan-400 mb-2">GR Serviços Ferroviários</h3>
-          <p class="text-base leading-relaxed">
-            Atuei como desenvolvedor autônomo, criando o site e sistema interno da GR Serviços Ferroviários. Utilizei Vue 3, PHP, autenticação por tipo de usuário, interface responsiva e deploy com Hostinger. Participei do levantamento de requisitos, escolhi a stack adequada e entreguei um produto funcional e seguro. <a href="https://grservicosferroviarios.com/" target="_blank" class="text-blue-400 underline">Acesse o site</a>.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-cyan-400 mb-2">LivPay / LIVIX</h3>
-          <p class="text-base leading-relaxed">
-            Como desenvolvedor full stack na LivPay (atual LIVIX), atuei no desenvolvimento de um novo site com React e integração ao backend em PHP. Realizei manutenção em sistemas web e mobile com Flutter, atualizando dependências, corrigindo bugs e entregando melhorias em performance e usabilidade.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-cyan-400 mb-2">Rede Sul de Notícias</h3>
-          <p class="text-base leading-relaxed">
-            Desenvolvi o portal de notícias completo com WordPress e Elementor, estrutura modular, categorização de blogs, integração com anúncios e otimização para grande volume de conteúdo. Projeto responsivo, moderno e fácil de manter.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-cyan-400 mb-2">Shooting House</h3>
-          <p class="text-base leading-relaxed">
-            Na Shooting House atuei como full stack com Angular, Laminas (Zend) e PostgreSQL. Implantei autenticação em dois fatores com Google Authenticator, criei novas telas com validação e segurança aprimorada, e melhorei a usabilidade geral do sistema interno.
-          </p>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div
+            v-for="(projeto, idx) in projetos"
+            :key="projeto.nome"
+            class="projeto-card p-6 rounded-xl group"
+            :class="{ 'ativo': projetoAtivo === idx }"
+            @mouseenter="projetoAtivo = idx"
+            @mouseleave="projetoAtivo = null"
+          >
+            <h3 class="text-xl font-bold text-cyan-400 mb-2">{{ projeto.nome }}</h3>
+            <p class="projeto-resumo text-base">{{ projeto.resumo }}</p>
+            <div class="projeto-detalhe text-base leading-relaxed">
+              <p v-html="projeto.detalhe"></p>
+              <a v-if="projeto.link" :href="projeto.link" target="_blank" class="text-blue-400 underline">Acesse o site</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -156,6 +174,36 @@
     new Vue({
       el: '#app',
       data: {
+        projetoAtivo: null,
+        projetos: [
+          {
+            nome: 'Sistema Meteorológico do Estado do Paraná',
+            resumo: 'Sistemas completos para o Simepar e empresas como Copel, com mapas, dashboards e alertas.',
+            detalhe: `Durante minha trajetória no Simepar, atuei predominantemente como desenvolvedor front-end, com forte colaboração no back-end utilizando o framework Laravel. Desenvolvi sistemas completos desde a concepção até a entrega final, sempre focando em qualidade, desempenho e usabilidade.
+            Trabalhei em diversos projetos de grande porte para empresas como Copel Geração, Transmissão e Distribuição. Destaque para sistemas com Leaflet, MapLibre, dashboards com Highcharts, alertas geográficos para Defesa Civil e o sistema vFogo com filtros por satélite, horário e áreas estratégicas. Também atuei como tech lead em iniciativas com autenticação 2FA e Clean Code.`
+          },
+          {
+            nome: 'GR Serviços Ferroviários',
+            resumo: 'Site e sistema interno com Vue 3, PHP, autenticação e interface responsiva.',
+            detalhe: `Atuei como desenvolvedor autônomo, criando o site e sistema interno da GR Serviços Ferroviários. Utilizei Vue 3, PHP, autenticação por tipo de usuário, interface responsiva e deploy com Hostinger. Participei do levantamento de requisitos, escolhi a stack adequada e entreguei um produto funcional e seguro.`,
+            link: 'https://grservicosferroviarios.com/'
+          },
+          {
+            nome: 'LivPay / LIVIX',
+            resumo: 'Novo site em React, manutenção web/mobile com Flutter e melhorias de performance.',
+            detalhe: `Como desenvolvedor full stack na LivPay (atual LIVIX), atuei no desenvolvimento de um novo site com React e integração ao backend em PHP. Realizei manutenção em sistemas web e mobile com Flutter, atualizando dependências, corrigindo bugs e entregando melhorias em performance e usabilidade.`
+          },
+          {
+            nome: 'Rede Sul de Notícias',
+            resumo: 'Portal de notícias em WordPress e Elementor, modular e otimizado para conteúdo.',
+            detalhe: `Desenvolvi o portal de notícias completo com WordPress e Elementor, estrutura modular, categorização de blogs, integração com anúncios e otimização para grande volume de conteúdo. Projeto responsivo, moderno e fácil de manter.`
+          },
+          {
+            nome: 'Shooting House',
+            resumo: 'Sistema interno com Angular, Laminas e PostgreSQL, autenticação 2FA e novas telas.',
+            detalhe: `Na Shooting House atuei como full stack com Angular, Laminas (Zend) e PostgreSQL. Implantei autenticação em dois fatores com Google Authenticator, criei novas telas com validação e segurança aprimorada, e melhorei a usabilidade geral do sistema interno.`
+          }
+        ],
         tecnologias: [
           { nome: 'Vue.js', icone: 'fab fa-vuejs', classe: 'vue' },
           { nome: 'Nuxt 3', icone: 'fas fa-layer-group', classe: 'nuxt' },
