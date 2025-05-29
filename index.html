@@ -6,9 +6,34 @@
   <title>Portfólio | Matheus Socoloski</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <style>
     html { scroll-behavior: smooth; }
+    .tech-card {
+      transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    }
+    .tech-card:hover {
+      transform: scale(1.05);
+      color: white;
+    }
+    .vue:hover { background-color: #42b883; }
+    .nuxt:hover { background-color: #00c58e; }
+    .react:hover { background-color: #61dafb; color: #000; }
+    .next:hover { background-color: #000; }
+    .laravel:hover { background-color: #ff2d20; }
+    .php:hover { background-color: #8892be; }
+    .postgres:hover { background-color: #336791; }
+    .cicd:hover { background-color: #6c63ff; }
+    .docker:hover { background-color: #2496ed; }
+    .git:hover { background-color: #f1502f; }
+    .bitbucket:hover { background-color: #0052cc; }
+    .node:hover { background-color: #43853d; }
+    .jest:hover { background-color: #99425b; }
+    .cypress:hover { background-color: #17202c; }
+    .postman:hover { background-color: #ff6c37; }
+    .figma:hover { background-color: #f24e1e; }
+    .heroku:hover { background-color: #430098; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
@@ -51,6 +76,10 @@
             <h3 class="text-xl font-bold mb-2">Shooting House</h3>
             <p class="text-sm">Web app responsivo com Vue.js 3 e PHP. Deploy automatizado e manutenção contínua.</p>
           </div>
+          <div class="bg-white p-6 shadow rounded-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">GR Serviços Ferroviários</h3>
+            <p class="text-sm">Projeto realizado como desenvolvedor PJ. <a href="https://grservicosferroviarios.com/" target="_blank" class="text-blue-600 hover:underline">Acesse o site</a>.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -60,8 +89,9 @@
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-semibold mb-8 animate__animated animate__fadeIn">Habilidades Técnicas</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div v-for="tech in tecnologias" :key="tech" class="bg-white p-4 rounded-lg shadow text-center animate__animated animate__zoomIn">
-            <span class="block font-bold">{{ tech }}</span>
+          <div v-for="(tech, i) in tecnologias" :key="tech.nome" :class="'tech-card p-4 rounded-lg shadow text-center flex items-center space-x-3 ' + tech.classe">
+            <i :class="tech.icone + ' text-xl'" style="min-width: 1.5rem;"></i>
+            <span class="font-bold">{{ tech.nome }}</span>
           </div>
         </div>
       </div>
@@ -89,9 +119,23 @@
       el: '#app',
       data: {
         tecnologias: [
-          'Vue.js', 'Nuxt 3', 'React', 'Next.js', 'Laravel', 'PHP',
-          'PostgreSQL', 'CI/CD', 'Docker', 'Git', 'Bitbucket',
-          'Node.js', 'Jest', 'Cypress', 'Postman', 'Figma', 'Heroku'
+          { nome: 'Vue.js', icone: 'fab fa-vuejs', classe: 'vue' },
+          { nome: 'Nuxt 3', icone: 'fas fa-layer-group', classe: 'nuxt' },
+          { nome: 'React', icone: 'fab fa-react', classe: 'react' },
+          { nome: 'Next.js', icone: 'fas fa-code', classe: 'next' },
+          { nome: 'Laravel', icone: 'fab fa-laravel', classe: 'laravel' },
+          { nome: 'PHP', icone: 'fab fa-php', classe: 'php' },
+          { nome: 'PostgreSQL', icone: 'fas fa-database', classe: 'postgres' },
+          { nome: 'CI/CD', icone: 'fas fa-sync-alt', classe: 'cicd' },
+          { nome: 'Docker', icone: 'fab fa-docker', classe: 'docker' },
+          { nome: 'Git', icone: 'fab fa-git-alt', classe: 'git' },
+          { nome: 'Bitbucket', icone: 'fab fa-bitbucket', classe: 'bitbucket' },
+          { nome: 'Node.js', icone: 'fab fa-node-js', classe: 'node' },
+          { nome: 'Jest', icone: 'fas fa-vial', classe: 'jest' },
+          { nome: 'Cypress', icone: 'fas fa-bug', classe: 'cypress' },
+          { nome: 'Postman', icone: 'fas fa-paper-plane', classe: 'postman' },
+          { nome: 'Figma', icone: 'fab fa-figma', classe: 'figma' },
+          { nome: 'Heroku', icone: 'fab fa-cloudscale', classe: 'heroku' }
         ]
       }
     });
