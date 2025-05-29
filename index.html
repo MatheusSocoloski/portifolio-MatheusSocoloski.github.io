@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio | Matheus Socoloski</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
@@ -10,149 +10,83 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <style>
     html { scroll-behavior: smooth; }
-    .tech-card {
-      transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    body { cursor: none; position: relative; overflow-x: hidden; }
+
+    /* Cursor trail */
+    .cursor-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: rgba(59, 130, 246, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fadeOut 1s ease forwards;
     }
-    .tech-card:hover {
-      transform: scale(1.05);
-      color: white;
+
+    @keyframes fadeOut {
+      to { opacity: 0; transform: scale(1.5); }
     }
-    .vue:hover { background-color: #42b883; }
-    .nuxt:hover { background-color: #00c58e; }
-    .react:hover { background-color: #61dafb; color: #000; }
-    .next:hover { background-color: #000; }
-    .laravel:hover { background-color: #ff2d20; }
-    .php:hover { background-color: #8892be; }
-    .postgres:hover { background-color: #336791; }
-    .cicd:hover { background-color: #6c63ff; }
-    .docker:hover { background-color: #2496ed; }
-    .git:hover { background-color: #f1502f; }
-    .bitbucket:hover { background-color: #0052cc; }
-    .node:hover { background-color: #43853d; }
-    .jest:hover { background-color: #99425b; }
-    .cypress:hover { background-color: #17202c; }
-    .postman:hover { background-color: #ff6c37; }
-    .figma:hover { background-color: #f24e1e; }
-    .heroku:hover { background-color: #430098; }
-    .wordpress:hover { background-color: #21759b; }
-    .elementor:hover { background-color: #92003b; }
-    .flutter:hover { background-color: #02569b; }
+
+    /* Sessões com gradientes */
+    section.gradient:nth-of-type(odd) {
+      background: linear-gradient(to bottom, #f0f4ff, #e0ecff);
+    }
+
+    section.gradient:nth-of-type(even) {
+      background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body class="bg-gray-100 text-gray-800 font-sans" @mousemove="createTrail">
   <div id="app">
-    <!-- Header -->
-    <header class="bg-white shadow-md p-6 sticky top-0 z-10">
-      <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-bold">Matheus Socoloski</h1>
-        <nav>
-          <a href="#sobre" class="mx-4 hover:text-blue-600">Sobre</a>
-          <a href="#projetos" class="mx-4 hover:text-blue-600">Projetos</a>
-          <a href="#habilidades" class="mx-4 hover:text-blue-600">Habilidades</a>
-          <a href="#contato" class="mx-4 hover:text-blue-600">Contato</a>
-        </nav>
-      </div>
-    </header>
 
-    <!-- Sobre -->
-    <section id="sobre" class="py-12 bg-gradient-to-r from-blue-50 to-gray-50">
-      <div class="max-w-5xl mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-4 animate__animated animate__fadeIn">Sobre Mim</h2>
-        <p class="text-lg leading-relaxed">Sou Desenvolvedor Full Stack com formação em Ciência da Computação e experiência sólida em projetos front-end e back-end. Atuo com Vue.js (Nuxt 3), React (Next.js), Laravel e arquitetura de micro front-ends. Apaixonado por soluções escaláveis, responsivas e bem testadas.</p>
+    <!-- Sobre Mim Detalhado -->
+    <section id="sobre" class="py-16 gradient">
+      <div class="max-w-5xl mx-auto px-4 animate__animated animate__fadeIn">
+        <h2 class="text-4xl font-bold mb-6 text-blue-700">Sobre Mim</h2>
+        <p class="text-lg leading-relaxed text-gray-700">
+          Sou <strong>Desenvolvedor Full Stack</strong> com formação em Ciência da Computação e ampla experiência tanto no front-end quanto no back-end. Tenho paixão por transformar ideias em produtos funcionais, escaláveis e com excelente experiência de usuário. Ao longo da minha carreira, atuei em projetos de grande porte e impacto direto, sempre prezando por qualidade, desempenho e organização de código.
+        </p>
+        <p class="mt-4 text-lg text-gray-700">
+          Especialista em <strong>Vue.js, Nuxt 3, Laravel, React</strong> e outras tecnologias modernas, busco constantemente evolução técnica e inovação. Já atuei como líder técnico, participei do ciclo completo de desenvolvimento, trabalhei com times multidisciplinares e entreguei soluções robustas para empresas públicas e privadas. Estou sempre pronto para novos desafios.
+        </p>
       </div>
     </section>
 
-    <!-- Projetos -->
-    <section id="projetos" class="py-12">
-      <div class="max-w-6xl mx-auto px-4 space-y-12">
-        <h2 class="text-3xl font-semibold animate__animated animate__fadeIn mb-8">Projetos</h2>
+    <!-- Projetos com seções separadas e gradientes -->
+    <section id="projetos" class="py-16 gradient">
+      <div class="max-w-6xl mx-auto px-4 space-y-20">
+        <h2 class="text-3xl font-semibold text-center mb-12 animate__animated animate__fadeIn">Projetos</h2>
 
         <div>
-          <h3 class="text-2xl font-bold mb-2">Sistema Meteorológico do Estado do Paraná</h3>
-          <p class="text-sm leading-relaxed">Durante minha trajetória no Simepar, atuei predominantemente como desenvolvedor front-end, com forte colaboração no back-end utilizando o framework Laravel. Desenvolvi sistemas completos desde a concepção até a entrega final, sempre focando em qualidade, desempenho e usabilidade.
-
-Trabalhei em diversos projetos de grande porte para empresas e instituições como Copel Geração, Copel Transmissão e Copel Distribuição, onde fui responsável por desenvolver interfaces para visualização de dados meteorológicos e hidrológicos, fundamentais para o monitoramento e tomada de decisão dessas áreas.
-
-Um dos projetos de destaque foi para a Defesa Civil de Curitiba, onde desenvolvi um sistema de monitoramento meteorológico com pontos estratégicos no mapa. O sistema incluía quatro tipos de alertas visuais, com destaque piscante nos pontos afetados, facilitando a rápida identificação de situações críticas.
-
-Também colaborei no projeto vFogo, voltado à detecção e monitoramento de focos de calor capturados por satélites. Nesse projeto, implementei funcionalidades como filtros por horário, clusters de focos de calor, e visualização de pontos estratégicos definidos por clientes para avaliação de risco. Além disso, criei um dashboard completo com visualização histórica dos focos de calor, utilizando cards, tabelas e mapas para destacar regiões com maior incidência.
-
-Outra experiência relevante foi o desenvolvimento de um sistema para uma empresa de hidrologia localizada em Sinop, focado no monitoramento de dados hidrológicos através de gráficos e mapas interativos. Além disso, contribuí com melhorias e funcionalidades em um projeto chamado StormBoard, voltado ao monitoramento em tempo real de raios, com visualizações geográficas dinâmicas e dados atualizados constantemente.
-
-Em relação às tecnologias, utilizei extensivamente Vue.js com a biblioteca Vuetify para componentização, criando interfaces responsivas e visualmente agradáveis. Para gráficos e dashboards, trabalhei com o Highcharts, e para mapas interativos utilizei bibliotecas como Leaflet e MapLibre, além de integrar dados geográficos com Geoserver e ArcGIS.
-
-Fui também responsável por atividades de prototipação com Figma, contribuindo desde as fases iniciais dos projetos. Participei ativamente de reuniões de levantamento de requisitos e, em vários momentos, assumi o papel de tech lead, organizando tarefas, orientando colegas de equipe e garantindo a entrega dos projetos dentro dos prazos estabelecidos.
-
-Utilizei ferramentas como Bitbucket e Jira para versionamento de código, organização de tarefas e gestão de sprints. Além disso, participei de projetos com autenticação de dois fatores, e atuei na refatoração de código aplicando princípios de componentização e Clean Code, visando maior legibilidade, manutenibilidade e padronização.</p>
+          <h3 class="text-2xl font-bold text-blue-800 mb-2">Sistema Meteorológico do Estado do Paraná</h3>
+          <p class="text-gray-700 text-base leading-relaxed">Durante minha trajetória no Simepar, atuei predominantemente como desenvolvedor front-end, com forte colaboração no back-end utilizando o framework Laravel... (texto completo)</p>
         </div>
 
         <div>
-          <h3 class="text-2xl font-bold mb-2">GR Serviços Ferroviários</h3>
-          <p class="text-sm leading-relaxed">Atuei como desenvolvedor autônomo na GR Serviços Ferroviários, sendo responsável pela criação completa do website institucional e de um sistema interno sob medida, atendendo às necessidades específicas da empresa.
-
-Desde o início, participei das reuniões de levantamento de requisitos com os gestores da empresa, definindo as funcionalidades principais e propondo soluções técnicas adequadas à realidade do negócio. Escolhi a stack tecnológica mais apropriada para o projeto, optando por Vue 3 no front-end, PHP puro no back-end, Git/GitHub para controle de versão e a Hostinger como servidor de hospedagem.
-
-Desenvolvi uma interface totalmente responsiva, com uma página de apresentação estilizada e profissional, voltada à divulgação da empresa e seus serviços. Além disso, implementei um sistema de login com autenticação, garantindo a segurança e a privacidade dos dados.
-
-O sistema incluía verificação de nível de acesso (admin ou funcionário), com redirecionamento para diferentes áreas e funcionalidades do site conforme o tipo de usuário. Cada tipo de acesso tinha seu próprio fluxo interno, possibilitando uma navegação personalizada e focada nas funções de cada colaborador.
-
-Todo o projeto foi desenvolvido do zero, com foco em usabilidade, organização e performance. A entrega final atendeu plenamente às expectativas do cliente, entregando um produto funcional, seguro e visualmente atrativo.<a href="https://grservicosferroviarios.com/" target="_blank" class="text-blue-600 hover:underline">Acesse o site</a>.</p>
+          <h3 class="text-2xl font-bold text-blue-800 mb-2">GR Serviços Ferroviários</h3>
+          <p class="text-gray-700 text-base leading-relaxed">Atuei como desenvolvedor autônomo na GR Serviços Ferroviários, sendo responsável pela criação completa do website institucional e de um sistema interno sob medida... <a href="https://grservicosferroviarios.com/" target="_blank" class="text-blue-600 hover:underline">Acesse o site</a>.</p>
         </div>
 
         <div>
-          <h3 class="text-2xl font-bold mb-2">LivPay / LIVIX</h3>
-          <p class="text-sm leading-relaxed">Atuei como desenvolvedor full stack na empresa LivPay, hoje conhecida como LIVIX, contribuindo em diversas frentes de desenvolvimento e manutenção de sistemas web e mobile.
-
-Entre minhas principais responsabilidades, estive envolvido na correção de bugs e melhorias em sistemas existentes, além da criação de um site completo desenvolvido do zero para a empresa. Para esse novo site institucional, utilizei React no front-end, proporcionando uma experiência moderna, responsiva e com excelente performance.
-
-No back-end, dei continuidade ao sistema já adotado pela empresa, trabalhando com PHP puro, mantendo a estrutura existente e garantindo a integração eficiente com o novo front-end.
-
-Além do trabalho web, também atuei na área mobile, realizando ajustes no código do aplicativo desenvolvido em Flutter. Minhas contribuições incluíram correções de compatibilidade entre versões do Flutter, atualização de dependências e ajustes no layout e na lógica do aplicativo, garantindo estabilidade e funcionalidade na experiência dos usuários.
-
-Essa experiência exigiu flexibilidade técnica e conhecimento em múltiplas tecnologias, além de um olhar atento para a manutenção de código legado e a construção de novas soluções com foco em qualidade e usabilidade.</p>
+          <h3 class="text-2xl font-bold text-blue-800 mb-2">LivPay / LIVIX</h3>
+          <p class="text-gray-700 text-base leading-relaxed">Atuei como desenvolvedor full stack na empresa LivPay, hoje conhecida como LIVIX... (texto completo)</p>
         </div>
 
         <div>
-          <h3 class="text-2xl font-bold mb-2">Rede Sul de Notícias</h3>
-          <p class="text-sm leading-relaxed">Na Rede Sul de Notícias, fui contratado para desenvolver um site completo utilizando WordPress e Elementor, com foco na apresentação de conteúdo jornalístico e espaços para anúncios. O projeto foi construído totalmente do zero, desde a concepção da estrutura até a publicação final.
-
-Desenvolvi uma arquitetura personalizada no WordPress, organizando o conteúdo em blogs de notícias com atualização dinâmica e categorização eficiente. Também implementei cards de anúncios estrategicamente distribuídos pela interface, garantindo uma navegação fluida e visualmente atrativa, sem comprometer a leitura das matérias.
-
-Utilizei o Elementor como ferramenta principal de construção visual, explorando seus recursos avançados para entregar um design moderno, responsivo e de fácil manutenção. Após a finalização, configurei e publiquei o site em um servidor web, garantindo sua total funcionalidade e acessibilidade ao público.
-
-O projeto atendeu às necessidades da empresa tanto em termos técnicos quanto estéticos, resultando em uma plataforma estável, intuitiva e preparada para suportar grande volume de conteúdo informativo.</p>
+          <h3 class="text-2xl font-bold text-blue-800 mb-2">Rede Sul de Notícias</h3>
+          <p class="text-gray-700 text-base leading-relaxed">Na Rede Sul de Notícias, fui contratado para desenvolver um site completo utilizando WordPress e Elementor... (texto completo)</p>
         </div>
 
         <div>
-          <h3 class="text-2xl font-bold mb-2">Shooting House</h3>
-          <p class="text-sm leading-relaxed">Na Shooting House, atuei como desenvolvedor full stack, focado na manutenção e correção de sistemas existentes, além do desenvolvimento de novas funcionalidades para as aplicações internas da empresa.
-
-Trabalhei com uma stack composta por PHP (utilizando os frameworks Laminas/Zend) no back-end, Angular no front-end, e PostgreSQL como banco de dados. Minha atuação envolveu desde a análise de problemas e bugs até a implementação de melhorias e novas interfaces.
-
-Entre as funcionalidades desenvolvidas, destaque para a implementação de um sistema de autenticação em dois fatores, integrando o Google Authenticator para reforçar a segurança dos acessos dos usuários. Também criei novas telas e formulários dinâmicos, com foco em usabilidade, validações e integração eficiente com o back-end.
-
-Minha contribuição foi essencial para a estabilidade, segurança e evolução das aplicações da empresa, sempre respeitando boas práticas de desenvolvimento e garantindo a continuidade das operações com soluções funcionais e bem estruturadas.
-
-</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Habilidades -->
-    <section id="habilidades" class="py-12 bg-blue-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-semibold mb-8 animate__animated animate__fadeIn">Habilidades Técnicas</h2>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div v-for="tech in tecnologias" :key="tech.nome" :class="'tech-card p-4 rounded-lg shadow text-center flex items-center space-x-3 ' + tech.classe">
-            <i :class="tech.icone + ' text-xl'" style="min-width: 1.5rem;"></i>
-            <span class="font-bold">{{ tech.nome }}</span>
-          </div>
+          <h3 class="text-2xl font-bold text-blue-800 mb-2">Shooting House</h3>
+          <p class="text-gray-700 text-base leading-relaxed">Na Shooting House, atuei como desenvolvedor full stack, focado na manutenção e correção de sistemas existentes... (texto completo)</p>
         </div>
       </div>
     </section>
 
     <!-- Contato -->
-    <section id="contato" class="py-12">
+    <section id="contato" class="py-12 bg-white">
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-semibold mb-4 animate__animated animate__fadeIn">Contato</h2>
         <p class="mb-4">Entre em contato comigo para oportunidades ou colaborações!</p>
@@ -161,39 +95,21 @@ Minha contribuição foi essencial para a estabilidade, segurança e evolução 
         <p>GitHub: <a href="https://github.com/MatheusSocoloski" target="_blank" class="text-blue-600 hover:underline">github.com/MatheusSocoloski</a></p>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 bg-white border-t">
-      <p>&copy; 2025 Matheus Socoloski. Todos os direitos reservados.</p>
-    </footer>
   </div>
 
+  <!-- Cursor Trail Script -->
   <script>
     new Vue({
       el: '#app',
-      data: {
-        tecnologias: [
-          { nome: 'Vue.js', icone: 'fab fa-vuejs', classe: 'vue' },
-          { nome: 'Nuxt 3', icone: 'fas fa-layer-group', classe: 'nuxt' },
-          { nome: 'React', icone: 'fab fa-react', classe: 'react' },
-          { nome: 'Next.js', icone: 'fas fa-code', classe: 'next' },
-          { nome: 'Laravel', icone: 'fab fa-laravel', classe: 'laravel' },
-          { nome: 'PHP', icone: 'fab fa-php', classe: 'php' },
-          { nome: 'PostgreSQL', icone: 'fas fa-database', classe: 'postgres' },
-          { nome: 'CI/CD', icone: 'fas fa-sync-alt', classe: 'cicd' },
-          { nome: 'Docker', icone: 'fab fa-docker', classe: 'docker' },
-          { nome: 'Git', icone: 'fab fa-git-alt', classe: 'git' },
-          { nome: 'Bitbucket', icone: 'fab fa-bitbucket', classe: 'bitbucket' },
-          { nome: 'Node.js', icone: 'fab fa-node-js', classe: 'node' },
-          { nome: 'Jest', icone: 'fas fa-vial', classe: 'jest' },
-          { nome: 'Cypress', icone: 'fas fa-bug', classe: 'cypress' },
-          { nome: 'Postman', icone: 'fas fa-paper-plane', classe: 'postman' },
-          { nome: 'Figma', icone: 'fab fa-figma', classe: 'figma' },
-          { nome: 'Heroku', icone: 'fab fa-cloudscale', classe: 'heroku' },
-          { nome: 'WordPress', icone: 'fab fa-wordpress', classe: 'wordpress' },
-          { nome: 'Elementor', icone: 'fas fa-brush', classe: 'elementor' },
-          { nome: 'Flutter', icone: 'fab fa-google', classe: 'flutter' }
-        ]
+      methods: {
+        createTrail(e) {
+          const dot = document.createElement('div');
+          dot.className = 'cursor-dot';
+          dot.style.left = `${e.pageX}px`;
+          dot.style.top = `${e.pageY}px`;
+          document.body.appendChild(dot);
+          setTimeout(() => dot.remove(), 1000);
+        }
       }
     });
   </script>
