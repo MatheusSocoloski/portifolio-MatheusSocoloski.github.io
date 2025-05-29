@@ -11,7 +11,7 @@
   <style>
     html { scroll-behavior: smooth; }
     body { position: relative; overflow-x: hidden; }
-    /* Cursor trail */
+
     .cursor-dot {
       position: absolute;
       width: 6px;
@@ -32,12 +32,38 @@
     section.gradient:nth-of-type(even) {
       background: linear-gradient(to bottom, #ffffff, #f9f9f9);
     }
+
+    .tech-card {
+      transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    }
+    .tech-card:hover {
+      transform: scale(1.05);
+      color: white;
+    }
+    .vue:hover { background-color: #42b883; }
+    .nuxt:hover { background-color: #00c58e; }
+    .react:hover { background-color: #61dafb; color: #000; }
+    .next:hover { background-color: #000; }
+    .laravel:hover { background-color: #ff2d20; }
+    .php:hover { background-color: #8892be; }
+    .postgres:hover { background-color: #336791; }
+    .docker:hover { background-color: #2496ed; }
+    .cicd:hover { background-color: #6c63ff; }
+    .git:hover { background-color: #f1502f; }
+    .bitbucket:hover { background-color: #0052cc; }
+    .figma:hover { background-color: #f24e1e; }
+    .jest:hover { background-color: #99425b; }
+    .cypress:hover { background-color: #17202c; }
+    .postman:hover { background-color: #ff6c37; }
+    .flutter:hover { background-color: #02569b; }
+    .wordpress:hover { background-color: #21759b; }
+    .elementor:hover { background-color: #92003b; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
   <div id="app" @mousemove="createTrail">
 
-    <!-- Header Restaurado -->
+    <!-- Header -->
     <header class="bg-white shadow-md p-6 sticky top-0 z-10">
       <div class="max-w-6xl mx-auto flex justify-between items-center">
         <h1 class="text-2xl font-bold">Matheus Socoloski</h1>
@@ -50,73 +76,28 @@
       </div>
     </header>
 
-    <!-- Seção Sobre já está detalhada acima -->
-
-    <!-- Seção Projetos Atualizada com Texto Completo -->
-    <section id="projetos" class="py-16 gradient">
-      <div class="max-w-6xl mx-auto px-4 space-y-20">
-        <h2 class="text-3xl font-semibold text-center mb-12 animate__animated animate__fadeIn">Projetos</h2>
-
-        <div>
-          <h3 class="text-2xl font-bold text-blue-800 mb-2">Sistema Meteorológico do Estado do Paraná</h3>
-          <p class="text-gray-700 text-base leading-relaxed">
-            Durante minha trajetória no Simepar, atuei predominantemente como desenvolvedor front-end, com forte colaboração no back-end utilizando o framework Laravel. Desenvolvi sistemas completos desde a concepção até a entrega final, sempre focando em qualidade, desempenho e usabilidade. Trabalhei em projetos de grande porte para empresas como Copel Geração, Transmissão e Distribuição, e para a Defesa Civil de Curitiba. Desenvolvi visualizações interativas usando Leaflet, MapLibre, Highcharts e dashboards completos com Vue.js e Vuetify. Colaborei ainda no projeto vFogo e StormBoard, atuando como tech lead e aplicando boas práticas de Clean Code, versionamento com Bitbucket e organização ágil com Jira.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-blue-800 mb-2">GR Serviços Ferroviários</h3>
-          <p class="text-gray-700 text-base leading-relaxed">
-            Atuei como desenvolvedor autônomo na GR Serviços Ferroviários, responsável pela criação completa do site institucional e de um sistema interno com autenticação, áreas restritas por nível de acesso e design profissional responsivo. Utilizei Vue 3, PHP puro e GitHub para versionamento. O sistema incluía autenticação, controle de áreas por perfil e deploy via Hostinger. <a href="https://grservicosferroviarios.com/" target="_blank" class="text-blue-600 hover:underline">Acesse o site</a>.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-blue-800 mb-2">LivPay / LIVIX</h3>
-          <p class="text-gray-700 text-base leading-relaxed">
-            Atuei como desenvolvedor full stack na LivPay (atual LIVIX), contribuindo para manutenção de sistemas, correções de bugs, desenvolvimento de um site institucional com React no front-end e PHP no back-end. Também atuei na manutenção do app em Flutter, atualizando dependências e melhorando compatibilidade entre versões. Trabalhei tanto com código legado quanto com novas soluções responsivas e modernas.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-blue-800 mb-2">Rede Sul de Notícias</h3>
-          <p class="text-gray-700 text-base leading-relaxed">
-            Fui contratado para desenvolver o novo site da Rede Sul de Notícias com WordPress e Elementor. Estruturei a arquitetura do portal, implementei organização dinâmica de conteúdo, categorização de blogs e espaços para anúncios distribuídos de forma eficiente. O site é moderno, leve, responsivo e de fácil manutenção.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold text-blue-800 mb-2">Shooting House</h3>
-          <p class="text-gray-700 text-base leading-relaxed">
-            Atuei como desenvolvedor full stack na Shooting House, com foco em manutenção e evolução de sistemas. Trabalhei com Angular, Laminas (Zend) e PostgreSQL. Implantei autenticação com Google Authenticator, refatorei módulos e desenvolvi novas telas e fluxos, melhorando a usabilidade e segurança dos sistemas internos.
-          </p>
-        </div>
+    <!-- Seção Sobre Restaurada -->
+    <section id="sobre" class="py-16 gradient">
+      <div class="max-w-5xl mx-auto px-4 animate__animated animate__fadeIn">
+        <h2 class="text-4xl font-bold mb-6 text-blue-700">Sobre Mim</h2>
+        <p class="text-lg leading-relaxed text-gray-700">
+          Sou <strong>Desenvolvedor Full Stack</strong> com formação em Ciência da Computação e ampla experiência tanto no front-end quanto no back-end. Tenho paixão por transformar ideias em produtos funcionais, escaláveis e com excelente experiência de usuário. Ao longo da minha carreira, atuei em projetos de grande porte e impacto direto, sempre prezando por qualidade, desempenho e organização de código.
+        </p>
+        <p class="mt-4 text-lg text-gray-700">
+          Especialista em <strong>Vue.js, Nuxt 3, Laravel, React</strong> e outras tecnologias modernas, busco constantemente evolução técnica e inovação. Já atuei como líder técnico, participei do ciclo completo de desenvolvimento, trabalhei com times multidisciplinares e entreguei soluções robustas para empresas públicas e privadas. Estou sempre pronto para novos desafios.
+        </p>
       </div>
     </section>
 
-    <!-- Habilidades Técnicas Restaurada -->
+    <!-- Habilidades Técnicas com Destaques e Ícones -->
     <section id="habilidades" class="py-12 bg-blue-50">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-semibold mb-8 animate__animated animate__fadeIn">Habilidades Técnicas</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div class="p-4 rounded-lg shadow text-center bg-white">Vue.js</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Nuxt 3</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">React</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Next.js</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Laravel</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">PHP</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">PostgreSQL</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Docker</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">CI/CD</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Git</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Bitbucket</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Figma</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Jest</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Cypress</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Postman</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Flutter</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">WordPress</div>
-          <div class="p-4 rounded-lg shadow text-center bg-white">Elementor</div>
+          <div v-for="tech in tecnologias" :key="tech.nome" :class="'tech-card p-4 rounded-lg shadow text-center flex items-center space-x-3 ' + tech.classe">
+            <i :class="tech.icone + ' text-xl'" style="min-width: 1.5rem;"></i>
+            <span class="font-bold">{{ tech.nome }}</span>
+          </div>
         </div>
       </div>
     </section>
@@ -137,6 +118,28 @@
   <script>
     new Vue({
       el: '#app',
+      data: {
+        tecnologias: [
+          { nome: 'Vue.js', icone: 'fab fa-vuejs', classe: 'vue' },
+          { nome: 'Nuxt 3', icone: 'fas fa-layer-group', classe: 'nuxt' },
+          { nome: 'React', icone: 'fab fa-react', classe: 'react' },
+          { nome: 'Next.js', icone: 'fas fa-code', classe: 'next' },
+          { nome: 'Laravel', icone: 'fab fa-laravel', classe: 'laravel' },
+          { nome: 'PHP', icone: 'fab fa-php', classe: 'php' },
+          { nome: 'PostgreSQL', icone: 'fas fa-database', classe: 'postgres' },
+          { nome: 'Docker', icone: 'fab fa-docker', classe: 'docker' },
+          { nome: 'CI/CD', icone: 'fas fa-sync-alt', classe: 'cicd' },
+          { nome: 'Git', icone: 'fab fa-git-alt', classe: 'git' },
+          { nome: 'Bitbucket', icone: 'fab fa-bitbucket', classe: 'bitbucket' },
+          { nome: 'Figma', icone: 'fab fa-figma', classe: 'figma' },
+          { nome: 'Jest', icone: 'fas fa-vial', classe: 'jest' },
+          { nome: 'Cypress', icone: 'fas fa-bug', classe: 'cypress' },
+          { nome: 'Postman', icone: 'fas fa-paper-plane', classe: 'postman' },
+          { nome: 'Flutter', icone: 'fab fa-google', classe: 'flutter' },
+          { nome: 'WordPress', icone: 'fab fa-wordpress', classe: 'wordpress' },
+          { nome: 'Elementor', icone: 'fas fa-brush', classe: 'elementor' }
+        ]
+      },
       methods: {
         createTrail(e) {
           const dot = document.createElement('div');
