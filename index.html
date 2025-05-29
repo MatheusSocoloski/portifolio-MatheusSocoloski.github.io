@@ -10,77 +10,113 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <style>
     html { scroll-behavior: smooth; }
-    body { cursor: none; position: relative; overflow-x: hidden; }
-
+    body { position: relative; overflow-x: hidden; }
     /* Cursor trail */
     .cursor-dot {
       position: absolute;
-      width: 8px;
-      height: 8px;
-      background: rgba(59, 130, 246, 0.6);
+      width: 6px;
+      height: 6px;
+      background: rgba(59, 130, 246, 0.4);
       border-radius: 50%;
       pointer-events: none;
-      animation: fadeOut 1s ease forwards;
+      animation: fadeOut 0.7s ease forwards;
     }
 
     @keyframes fadeOut {
-      to { opacity: 0; transform: scale(1.5); }
+      to { opacity: 0; transform: scale(1.8); }
     }
 
-    /* Sessões com gradientes */
     section.gradient:nth-of-type(odd) {
       background: linear-gradient(to bottom, #f0f4ff, #e0ecff);
     }
-
     section.gradient:nth-of-type(even) {
       background: linear-gradient(to bottom, #ffffff, #f9f9f9);
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans" @mousemove="createTrail">
-  <div id="app">
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div id="app" @mousemove="createTrail">
 
-    <!-- Sobre Mim Detalhado -->
-    <section id="sobre" class="py-16 gradient">
-      <div class="max-w-5xl mx-auto px-4 animate__animated animate__fadeIn">
-        <h2 class="text-4xl font-bold mb-6 text-blue-700">Sobre Mim</h2>
-        <p class="text-lg leading-relaxed text-gray-700">
-          Sou <strong>Desenvolvedor Full Stack</strong> com formação em Ciência da Computação e ampla experiência tanto no front-end quanto no back-end. Tenho paixão por transformar ideias em produtos funcionais, escaláveis e com excelente experiência de usuário. Ao longo da minha carreira, atuei em projetos de grande porte e impacto direto, sempre prezando por qualidade, desempenho e organização de código.
-        </p>
-        <p class="mt-4 text-lg text-gray-700">
-          Especialista em <strong>Vue.js, Nuxt 3, Laravel, React</strong> e outras tecnologias modernas, busco constantemente evolução técnica e inovação. Já atuei como líder técnico, participei do ciclo completo de desenvolvimento, trabalhei com times multidisciplinares e entreguei soluções robustas para empresas públicas e privadas. Estou sempre pronto para novos desafios.
-        </p>
+    <!-- Header Restaurado -->
+    <header class="bg-white shadow-md p-6 sticky top-0 z-10">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Matheus Socoloski</h1>
+        <nav>
+          <a href="#sobre" class="mx-4 hover:text-blue-600">Sobre</a>
+          <a href="#projetos" class="mx-4 hover:text-blue-600">Projetos</a>
+          <a href="#habilidades" class="mx-4 hover:text-blue-600">Habilidades</a>
+          <a href="#contato" class="mx-4 hover:text-blue-600">Contato</a>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <!-- Projetos com seções separadas e gradientes -->
+    <!-- Seção Sobre já está detalhada acima -->
+
+    <!-- Seção Projetos Atualizada com Texto Completo -->
     <section id="projetos" class="py-16 gradient">
       <div class="max-w-6xl mx-auto px-4 space-y-20">
         <h2 class="text-3xl font-semibold text-center mb-12 animate__animated animate__fadeIn">Projetos</h2>
 
         <div>
           <h3 class="text-2xl font-bold text-blue-800 mb-2">Sistema Meteorológico do Estado do Paraná</h3>
-          <p class="text-gray-700 text-base leading-relaxed">Durante minha trajetória no Simepar, atuei predominantemente como desenvolvedor front-end, com forte colaboração no back-end utilizando o framework Laravel... (texto completo)</p>
+          <p class="text-gray-700 text-base leading-relaxed">
+            Durante minha trajetória no Simepar, atuei predominantemente como desenvolvedor front-end, com forte colaboração no back-end utilizando o framework Laravel. Desenvolvi sistemas completos desde a concepção até a entrega final, sempre focando em qualidade, desempenho e usabilidade. Trabalhei em projetos de grande porte para empresas como Copel Geração, Transmissão e Distribuição, e para a Defesa Civil de Curitiba. Desenvolvi visualizações interativas usando Leaflet, MapLibre, Highcharts e dashboards completos com Vue.js e Vuetify. Colaborei ainda no projeto vFogo e StormBoard, atuando como tech lead e aplicando boas práticas de Clean Code, versionamento com Bitbucket e organização ágil com Jira.
+          </p>
         </div>
 
         <div>
           <h3 class="text-2xl font-bold text-blue-800 mb-2">GR Serviços Ferroviários</h3>
-          <p class="text-gray-700 text-base leading-relaxed">Atuei como desenvolvedor autônomo na GR Serviços Ferroviários, sendo responsável pela criação completa do website institucional e de um sistema interno sob medida... <a href="https://grservicosferroviarios.com/" target="_blank" class="text-blue-600 hover:underline">Acesse o site</a>.</p>
+          <p class="text-gray-700 text-base leading-relaxed">
+            Atuei como desenvolvedor autônomo na GR Serviços Ferroviários, responsável pela criação completa do site institucional e de um sistema interno com autenticação, áreas restritas por nível de acesso e design profissional responsivo. Utilizei Vue 3, PHP puro e GitHub para versionamento. O sistema incluía autenticação, controle de áreas por perfil e deploy via Hostinger. <a href="https://grservicosferroviarios.com/" target="_blank" class="text-blue-600 hover:underline">Acesse o site</a>.
+          </p>
         </div>
 
         <div>
           <h3 class="text-2xl font-bold text-blue-800 mb-2">LivPay / LIVIX</h3>
-          <p class="text-gray-700 text-base leading-relaxed">Atuei como desenvolvedor full stack na empresa LivPay, hoje conhecida como LIVIX... (texto completo)</p>
+          <p class="text-gray-700 text-base leading-relaxed">
+            Atuei como desenvolvedor full stack na LivPay (atual LIVIX), contribuindo para manutenção de sistemas, correções de bugs, desenvolvimento de um site institucional com React no front-end e PHP no back-end. Também atuei na manutenção do app em Flutter, atualizando dependências e melhorando compatibilidade entre versões. Trabalhei tanto com código legado quanto com novas soluções responsivas e modernas.
+          </p>
         </div>
 
         <div>
           <h3 class="text-2xl font-bold text-blue-800 mb-2">Rede Sul de Notícias</h3>
-          <p class="text-gray-700 text-base leading-relaxed">Na Rede Sul de Notícias, fui contratado para desenvolver um site completo utilizando WordPress e Elementor... (texto completo)</p>
+          <p class="text-gray-700 text-base leading-relaxed">
+            Fui contratado para desenvolver o novo site da Rede Sul de Notícias com WordPress e Elementor. Estruturei a arquitetura do portal, implementei organização dinâmica de conteúdo, categorização de blogs e espaços para anúncios distribuídos de forma eficiente. O site é moderno, leve, responsivo e de fácil manutenção.
+          </p>
         </div>
 
         <div>
           <h3 class="text-2xl font-bold text-blue-800 mb-2">Shooting House</h3>
-          <p class="text-gray-700 text-base leading-relaxed">Na Shooting House, atuei como desenvolvedor full stack, focado na manutenção e correção de sistemas existentes... (texto completo)</p>
+          <p class="text-gray-700 text-base leading-relaxed">
+            Atuei como desenvolvedor full stack na Shooting House, com foco em manutenção e evolução de sistemas. Trabalhei com Angular, Laminas (Zend) e PostgreSQL. Implantei autenticação com Google Authenticator, refatorei módulos e desenvolvi novas telas e fluxos, melhorando a usabilidade e segurança dos sistemas internos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades Técnicas Restaurada -->
+    <section id="habilidades" class="py-12 bg-blue-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 animate__animated animate__fadeIn">Habilidades Técnicas</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-lg shadow text-center bg-white">Vue.js</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Nuxt 3</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">React</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Next.js</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Laravel</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">PHP</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">PostgreSQL</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Docker</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">CI/CD</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Git</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Bitbucket</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Figma</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Jest</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Cypress</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Postman</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Flutter</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">WordPress</div>
+          <div class="p-4 rounded-lg shadow text-center bg-white">Elementor</div>
         </div>
       </div>
     </section>
@@ -108,7 +144,7 @@
           dot.style.left = `${e.pageX}px`;
           dot.style.top = `${e.pageY}px`;
           document.body.appendChild(dot);
-          setTimeout(() => dot.remove(), 1000);
+          setTimeout(() => dot.remove(), 700);
         }
       }
     });
