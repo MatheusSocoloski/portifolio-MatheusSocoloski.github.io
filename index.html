@@ -1,1 +1,100 @@
-"Ol� Mundo" 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Matheus Socoloski</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div id="app">
+    <!-- Header -->
+    <header class="bg-white shadow-md p-6 sticky top-0 z-10">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Matheus Socoloski</h1>
+        <nav>
+          <a href="#sobre" class="mx-4 hover:text-blue-600">Sobre</a>
+          <a href="#projetos" class="mx-4 hover:text-blue-600">Projetos</a>
+          <a href="#habilidades" class="mx-4 hover:text-blue-600">Habilidades</a>
+          <a href="#contato" class="mx-4 hover:text-blue-600">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-12 bg-gradient-to-r from-blue-50 to-gray-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-4 animate__animated animate__fadeIn">Sobre Mim</h2>
+        <p class="text-lg leading-relaxed">Sou Desenvolvedor Full Stack com formação em Ciência da Computação e experiência sólida em projetos front-end e back-end. Atuo com Vue.js (Nuxt 3), React (Next.js), Laravel e arquitetura de micro front-ends. Apaixonado por soluções escaláveis, responsivas e bem testadas.</p>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 animate__animated animate__fadeIn">Projetos</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 shadow rounded-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Sistema Meteorológico</h3>
+            <p class="text-sm">Sistema completo com Vue.js 3, Nuxt 3, Laravel, Flutter e visualização geográfica com Leaflet e MapLibre.</p>
+          </div>
+          <div class="bg-white p-6 shadow rounded-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Plataforma LivPay</h3>
+            <p class="text-sm">Sistema full stack com Angular, Laravel e PostgreSQL. Testes automatizados e CI/CD.</p>
+          </div>
+          <div class="bg-white p-6 shadow rounded-lg hover:shadow-xl transition duration-300">
+            <h3 class="text-xl font-bold mb-2">Shooting House</h3>
+            <p class="text-sm">Web app responsivo com Vue.js 3 e PHP. Deploy automatizado e manutenção contínua.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="py-12 bg-blue-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-semibold mb-8 animate__animated animate__fadeIn">Habilidades Técnicas</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div v-for="tech in tecnologias" :key="tech" class="bg-white p-4 rounded-lg shadow text-center animate__animated animate__zoomIn">
+            <span class="block font-bold">{{ tech }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-12">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-semibold mb-4 animate__animated animate__fadeIn">Contato</h2>
+        <p class="mb-4">Entre em contato comigo para oportunidades ou colaborações!</p>
+        <p>Email: <a href="mailto:matheusocoloski1@gmail.com" class="text-blue-600 hover:underline">matheusocoloski1@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/matheus-socoloski-813157219/" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/matheus-socoloski</a></p>
+        <p>GitHub: <a href="https://github.com/MatheusSocoloski" target="_blank" class="text-blue-600 hover:underline">github.com/MatheusSocoloski</a></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-white border-t">
+      <p>&copy; 2025 Matheus Socoloski. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        tecnologias: [
+          'Vue.js', 'Nuxt 3', 'React', 'Next.js', 'Laravel', 'PHP',
+          'PostgreSQL', 'CI/CD', 'Docker', 'Git', 'Bitbucket',
+          'Node.js', 'Jest', 'Cypress', 'Postman', 'Figma', 'Heroku'
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
